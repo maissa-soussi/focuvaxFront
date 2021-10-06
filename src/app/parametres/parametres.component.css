@@ -1,0 +1,129 @@
+#Section {
+    background-image: url("/assets/images/backgrounds/Focuvax_Register.svg");
+    min-width: 100%;
+    min-height: 100%;
+    top: 0;
+    left: 0;
+    position: absolute;
+    color: white;
+}
+
+.pad{
+    padding-left: 8%;
+    padding-right: 8%;
+    text-align: left;
+}
+
+#logo{
+    text-align: center;
+}
+
+#image1{
+    width: 200px;
+}
+
+.pad1{
+    padding-left: 11%;
+    padding-right: 5%;
+    text-align: center;
+    padding-top: 25px;
+}
+
+h3{
+    font-weight: bold;
+}
+
+#body-info{
+    padding-top: 15px;
+}
+
+.btn{
+    background-color: #db6015;
+    color:white;
+    font-weight: bold;
+    border-radius: 7px;
+    font-size: 14px;
+    border : none;
+}
+
+.form-control{
+    background-color: rgb(81, 126, 159, 0.5);
+    color: white;
+    border: none;
+}
+
+.rowpop{
+    padding-bottom: 20px;
+    padding-right: 10px;
+    padding-top:20px;
+    padding-left: 10px;
+}
+.rowbtn{
+    padding-bottom: 20px;
+    padding-right: 10px;
+    text-align: center;
+}
+
+h4{
+    color: white;
+    font-weight: bold;
+}
+
+.tab-content{
+    background-color: rgb(81, 126, 159, 0.2);
+    padding-bottom: 20px;
+    padding-left:10px;
+}
+.nav{
+    padding-bottom: 0.01rem;
+}
+
+.nav-item{
+    background-color: rgb(81, 126, 159, 0.3);
+    color: white;
+    font-weight: bold;
+}
+
+li{
+    margin-right: 10px;
+}
+
+a{
+    height: 30px;
+    padding:5px;
+    color: white;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+.tab-content{
+    width: 93.5%;
+}
+
+.par{
+    text-align: left;
+    padding-left: 10px;
+}
+
+.fa-trash-alt{
+    color: rgb(156, 9, 9, 0.6);
+    padding-right: 0px;
+    margin-left: 15px;
+    font-size: 15px;
+}
+
+.fa-pen{
+    color: rgb(255, 255, 255, 0.7);
+    font-size: 15px;
+}
+
+.col-md-8{
+    font-size: 18px;
+    font-weight: bolder;
+}
+
+button{
+    background-color: transparent;
+    border: none;
+}
+

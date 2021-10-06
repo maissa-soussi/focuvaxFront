@@ -1,0 +1,20 @@
+.navbar{
+    background-color: transparent;
+    color: white;
+}
+a {
+    color: white;
+}
+a:hover{
+    color: #db6015 ;
+}
+
+button {
+    outline: none !important;
+    border: none;
+    background-color: transparent;
+  }
+
+.design {
+    color: #db6015;
+}

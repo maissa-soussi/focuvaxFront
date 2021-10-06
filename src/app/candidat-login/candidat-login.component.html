@@ -1,0 +1,47 @@
+<div id="Section">
+    <div class="navaccueil">
+        <app-accueil-navbar></app-accueil-navbar>
+    </div>
+    <div class="row">
+        <div class="col-md-6 offset-md-3">
+            <img src="/assets/images/logo/Focuvax_Logo_Accueil.svg" id="image1">
+        </div>
+    </div>
+    <div class="row" id="body-form">
+        <div class="col-md-6 offset-md-3">
+            <h3>SE CONNECTER</h3>
+
+            <form [formGroup]="loginForm" (ngSubmit)="loginCandidat()">
+                <div class="form-group">
+                    <input type="email" class="form-control" id="email" placeholder="Email" formControlName="username"
+                        [(ngModel)]="user.username" [ngClass]="{'inputinval': username?.touched && username?.invalid}">
+                        <div *ngIf="username?.touched && username?.invalid" class="text-danger">
+                            <small *ngIf="username?.errors?.required">Champ obligatoire <br></small>
+                            <small *ngIf="username?.errors?.email">Email invalide</small>
+                        </div>
+                </div>
+                <div class="form-group">
+                    <input type="password" class="form-control" id="password" placeholder="Mot de passe"
+                        formControlName="mdp" [(ngModel)]="user.mdp"
+                        [ngClass]="{'inputinval': mdp?.touched && mdp?.invalid}">
+                        <div *ngIf="mdp?.touched && mdp?.invalid" class="text-danger">
+                            <small *ngIf="mdp?.errors?.required">Champ obligatoire <br></small>
+                            <small *ngIf="mdp?.errors?.minlength">Minimum 8 caractères </small>
+                        </div>
+                </div>
+
+                <button type="submit" [disabled]="loginForm.invalid"
+                    [ngClass]="{'btn-secondary':loginForm.invalid,'btn-primary':loginForm.valid}" class="btn">Se
+                    connecter</button>
+            </form>
+
+        </div>
+
+    </div>
+
+    <div class="row">
+        <div class="col-md-6 offset-md-3">
+            <h6> <a href="" routerLink="/CreerCompte"> Un nouveau candidat ? Créer un compte ! </a></h6>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,128 @@
+#Section {
+    background-image: url("/assets/images/backgrounds/Focuvax_Compte.svg");
+    min-width: 100%;
+    min-height: 100%;
+    top: 0;
+    left: 0;
+    position: fixed;
+    color: white;
+}
+
+.pad{
+    padding-left: 8%;
+    padding-right: 8%;
+    text-align: left;
+}
+
+#logo{
+    text-align: center;
+}
+
+#image1{
+    width: 180px;
+}
+
+.title{
+    color: #db6015;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.form-control{
+    background-color: #517e9f;
+    color: white;
+    border: none;
+    height: 34px;
+}
+
+.custom-file-upload{
+    background-color: #517e9f;
+    color: white;
+    border: none;
+    height: 34px;
+}
+::-webkit-file-upload-button {
+    background: #db6015;
+    color: white;
+    border: none;
+    border-radius: 30px;
+    height: 34px;
+  }
+.simple{
+    background-color: transparent !important;
+    width: 300px;
+}
+
+.input-group-text, .custom-file-label, .custom-file-input{
+    background-color: #517e9f;
+    color: white;
+    border: none;
+    height: 34px;
+}
+.input-group-text {
+    margin-right: 20px;
+    width: 100px;
+}
+
+::placeholder{
+    color: white;
+}
+
+#username{
+    margin-bottom: 50px;
+}
+
+.btn{
+    background-color: #db6015;
+    color:white;
+    font-weight: bold;
+    margin-top: 5px;
+}
+
+#profil {
+    height: 150px;
+    border-radius: 50%;
+    max-width: 150px;
+}
+
+h4 {
+    font-weight: bold;
+}
+
+span{
+    color: #db6015;
+}
+
+i {
+    height: 20px;
+    margin-top: 10px;
+    margin-right: 10px;
+    margin-left: 10px;
+    background-color: #517e9f;
+    border-radius: 50%;
+    width: 24px;
+    height: 24px;
+    padding-left: 4px;
+    padding-top: 4px;
+}
+
+.input-group {
+    margin-bottom: 13px;
+}
+
+.inputinval{
+    
+    box-shadow: inset 0 0 0.4em gainsboro, 0 0 1em #db6015;
+}
+
+.tel{
+    padding-bottom: 10px;
+}
+
+.buttonplace{
+    text-align: center;
+}
+
+.btn{
+    border: none;
+}

@@ -1,0 +1,152 @@
+#Section {
+    background-image: url("/assets/images/backgrounds/Focuvax_Register.svg");
+    min-width: 100%;
+    min-height: 100%;
+    top: 0;
+    left: 0;
+    position: absolute;
+    color: white;
+}
+.rowdesign{
+    padding-left: 8%;
+    padding-right: 8%;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+#image1{
+    width: 200px;
+}
+
+h3{
+    font-weight: bold;
+    padding-bottom: 15px;
+}
+
+.card{
+    background-color: transparent;
+    text-align: left;
+}
+
+.card-header {
+    color: #db6015;
+    font-weight: bold;
+    font-size: 17px;
+    text-transform: uppercase;
+}
+
+.card-title{
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.more{
+    font-size: 13px;
+    font-weight: bold;
+}
+
+.icons{
+    color: #db6015;
+}
+
+p{
+    font-size: 13px;
+    margin-bottom: 1px;
+}
+.card-text{
+ text-align: justify;
+ height: 60px;
+}
+
+.card-body{
+    padding-right: 1rem;
+    padding-left: 1rem;
+    padding-bottom: 0.5rem;
+    padding-top: 0.5rem;
+}
+
+.exper{
+    color: #db6015;
+    font-weight: bold;
+}
+
+.pays{
+    font-weight: bold;
+    color: white;
+}
+
+.card-footer{
+    padding-left: 1rem;
+    padding-right: 1rem;
+    padding-top: 0.3rem;
+    padding-bottom: 0.2rem;
+    font-weight: bold;
+}
+
+.btn{
+    background-color: #db6015;
+    color:white;
+    font-weight: bold;
+    border-radius: 15px;
+    font-size: 16px;
+}
+
+.modifchoix{
+    color: #db6015;
+    font-size: 12px;
+    margin-top: 10px;
+    margin-bottom: 25px;
+}
+
+.inputcheck{
+    color: transparent;
+    margin-right: 5px;
+}
+
+.buttonMore{
+    border: none;
+    background-color: transparent;
+    color: white;
+    padding:0;
+}
+
+.modal-body{
+    background-image: url("/assets/images/backgrounds/Focuvax_Register.svg");
+    border: none;
+}
+
+.modal-header{
+    background-color: rgb(219, 96, 21, 0.8);
+    border: none;
+    height: 50px;
+    font-weight: bold;
+    font-size: 17px;
+    text-transform: uppercase;
+}
+
+.col-md-7{
+    background-color: rgb(81, 126, 159, 0.3);
+    text-align: justify;
+}
+
+.col-md-5{
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.rowpop{
+    padding-bottom: 20px;
+    padding-right: 15px;
+}
+
+.modal{
+    padding: 30px;
+}
+
+.cardlimit{
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}

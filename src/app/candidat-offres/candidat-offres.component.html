@@ -1,0 +1,90 @@
+<div id="Section">
+    <div class="navaccueil">
+        <app-accueil-navbar></app-accueil-navbar>
+    </div>
+
+    <div class="row rowdesign">
+        <div class="col-md-6 offset-md-3">
+            <h3>OFFRES D'EMPLOI</h3>
+        </div>
+    </div>
+    <form (ngSubmit)="CandidatOffre()">
+        <div class="row rowdesign row-cols-1 row-cols-md-4">
+            <div *ngFor="let offre of offres" class="col mb-3">
+                <div class="card">
+                    <div class="card-header bg-transparent">
+                        <input #checkBox type="checkbox"
+                            [disabled]="!(checkedOffres.indexOf(offre.id)>-1) && checkedOffres?.length == maxcheckedbox ? true:false"
+                            class="inputcheck" value="{{offre.id}}" id="{{offre.id}}"
+                            (change)="checkedState($event, checkBox, offre.id)">{{offre.ref}}
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title">{{offre.titre}}</h5>
+                        <p class="card-text cardlimit">{{offre.mission}}</p>
+
+                        <a data-toggle="modal" data-target="#mymodal" (click)="test(offre)"><button class="buttonMore">
+                                <h5 class="more"> See More <i class="fas fa-caret-right icons"></i> </h5>
+                            </button></a>
+
+                    </div>
+                    <div class="card-footer">
+                        <div class="row">
+                            <div class="col-md-6 exper">
+                                <h6>{{offre.niveau_Exp}}</h6>
+                            </div>
+                            <div class="col-md-6 pays">
+                                <h6>{{offre.pays}}</h6>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- modal-->
+                    <div class="modal" id="mymodal">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5>{{t.ref}} </h5>
+                                </div>
+                                <div class="modal-body">
+                                    <div class="row rowpop">
+                                        <div class="col-md-5"> TITRE</div>
+                                        <div class="col-md-7"> {{t.titre}}</div>
+                                    </div>
+                                    <div class="row rowpop">
+                                        <div class="col-md-5"> PROFIL</div>
+                                        <div class="col-md-7"> {{t.profil}}</div>
+                                    </div>
+                                    <div class="row rowpop">
+                                        <div class="col-md-5"> MISSION</div>
+                                        <div class="col-md-7"> {{t.mission}}</div>
+                                    </div>
+                                    <div class="row rowpop">
+                                        <div class="col-md-5"> NIVEAU D'EXPERIENCE</div>
+                                        <div class="col-md-7"> {{t.niveau_Exp}}</div>
+                                    </div>
+                                    <div class="row rowpop">
+                                        <div class="col-md-5"> PAYS</div>
+                                        <div class="col-md-7"> {{t.pays}}</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--fin modal-->
+
+                </div>
+            </div>
+
+        </div>
+
+        <div class="row rowdesign">
+            <div class="col-md-6 offset-md-3">
+                <button type="submit" [disabled]="checkedNumber==0 || testCandidat==false"
+                    [ngClass]="{'btn-secondary':checkedNumber==0 || testCandidat==false,'btn-primary':checkedNumber>0 && testCandidat==true}"
+                    class="btn btn-default editable-submit">POSTULER</button>
+            </div>
+        </div>
+
+    </form>
+
+</div>

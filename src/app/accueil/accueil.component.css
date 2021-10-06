@@ -1,0 +1,78 @@
+#Section {
+    background-image: url("/assets/images/backgrounds/Focuvax_Accueil.svg");
+    min-width: 100%;
+    min-height: 100%;
+    top: 0;
+    left: 0;
+    position: fixed;
+
+    color: white;
+}
+
+#image1{
+    width: 200px;
+    padding-bottom: 7px;
+}
+
+
+span {
+    color: #db6015;
+}
+
+.row {
+    padding-left: 8%;
+    padding-right: 6%;
+}
+
+.navaccueil{
+    padding-bottom: 3%;
+}
+
+.maps{
+    padding-top: 15%;
+    padding-left: 10%;
+}
+
+#footer {
+    padding-left: 22%;
+    padding-top: 10px;
+}
+
+h6{
+    font-size: 5px;
+    text-align: center;
+    margin-right: 7px;
+}
+a {
+    color: white;
+}
+
+i {
+    border-radius: 50%;
+    border : 1px solid #db6015;
+    height: 35px;
+    width: 35px;
+    -moz-border-radius:50%;
+    -webkit-border-radius:50%;
+    padding-left: 8px;
+    padding-top: 7px;
+}
+
+.gras{
+    font-weight: bold;
+    color: #db6015;
+}
+
+#nom{
+    margin-bottom: 70px;
+}
+
+p{
+    text-align: justify;
+    width:80%;
+}
+
+
+.fa-facebook-f{
+    padding-left:10px;
+}

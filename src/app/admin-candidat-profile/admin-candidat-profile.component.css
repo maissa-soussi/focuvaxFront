@@ -1,0 +1,103 @@
+#Section {
+    background-image: url("/assets/images/backgrounds/Focuvax_Register.svg");
+    min-width: 100%;
+    min-height: 100%;
+    top: 0;
+    left: 0;
+    position: absolute;
+    color: white;
+}
+
+.pad{
+    padding-left: 8%;
+    padding-right: 8%;
+    text-align: left;
+}
+
+#logo{
+    text-align: center;
+}
+
+#image1{
+    width: 200px;
+}
+
+.pad1{
+    padding-left: 12%;
+    padding-right: 8%;
+    text-align: left;
+    padding-top: 25px;
+}
+
+#profil {
+    height: 150px;
+    border-radius: 50%;
+    max-width: 150px;
+}
+
+h4 {
+    font-weight: bold;
+}
+
+.name{
+    color: #db6015;
+}
+
+#username{
+    margin-bottom: 50px;
+}
+
+i {
+    height: 20px;
+    margin-top: 0px;
+    margin-right: 10px;
+    margin-left: 10px;
+    background-color: #517e9f;
+    border-radius: 50%;
+    width: 24px;
+    height: 24px;
+    padding-left: 4px;
+    padding-top: 4px;
+}
+
+a{
+    color: white;
+}
+.fa-file-download{
+    padding-left: 6px;
+}
+
+.contact{
+    padding-bottom: 10px;
+}
+
+.title{
+    color: #db6015;
+    font-weight: bold;
+    margin-bottom: 20px;
+    margin-top: 20px;
+}
+
+.col-md-8{
+    color: white;
+    font-size: 18px;
+}
+
+.fa-dot-circle{
+    font-size: 16px;
+}
+
+.informationProfile{
+margin-bottom: 10px;
+}
+
+.titre{
+    color: rgb(255,255,255, 0.7);
+    
+}
+
+.corps{
+    text-transform: capitalize;
+    font-size: 18px;
+    font-weight: bold;
+}

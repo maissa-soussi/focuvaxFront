@@ -1,0 +1,36 @@
+<nav class="navbar navbar-expand-lg">
+    <div class="container">
+        <a class="navbar-brand" href="/">
+            <img src="/assets/images/logo/Focus_Logo.svg" alt="" width="150" height="70"
+                class="d-inline-block align-text-top">
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
+            aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse justify-content-end" id="navbarResponsive">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link js-scroll-trigger" routerLink="/"> À PROPOS</a>
+                </li>
+                <li class="nav-item" *ngIf="test == true && testcandidat== false">
+                    <a class="nav-link js-scroll-trigger" routerLink="/MonCompte">MON COMPTE</a>
+                </li>
+                <li class="nav-item" *ngIf="test == true && testcandidat== true">
+                    <a class="nav-link js-scroll-trigger" routerLink="/EspaceCandidat">PROFILE</a>
+                </li>
+                <li class="nav-item" *ngIf="test == true">
+                    <a class="nav-link js-scroll-trigger" routerLink="/Offres">OFFRES</a>
+                </li>
+                <li class="nav-item" *ngIf="test == false">
+                    <a class="nav-link js-scroll-trigger" routerLink="/Authentification">SE CONNECTER
+                    </a>
+                </li>
+                <li class="nav-item" *ngIf="test == true">
+                    <button (click)="logout()"> <a class="nav-link js-scroll-trigger"> SE DÉCONNECTER <i
+                                class="fas fa-power-off"></i></a></button>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>

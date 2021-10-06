@@ -1,0 +1,106 @@
+#Section {
+    background-image: url("/assets/images/backgrounds/Focuvax_Register.svg");
+    min-width: 100%;
+    min-height: 100%;
+    top: 0;
+    left: 0;
+    position: absolute;
+    color: white;
+}
+
+.pad{
+    padding-left: 8%;
+    padding-right: 8%;
+    text-align: left;
+}
+
+#logo{
+    text-align: center;
+}
+
+#image1{
+    width: 200px;
+}
+
+.pad1{
+    padding-left: 11%;
+    padding-right: 11%;
+    text-align: center;
+    padding-top: 25px;
+}
+
+.stat{
+    background-color: rgb(81, 126, 159, 0.5);
+    color: white;
+    font-weight: bold;
+    margin-right: 4%;
+    padding-bottom: 5px;
+    padding-top: 5px;
+    height: 60px;
+    font-size: 20px;
+    margin-left: 4%;
+}
+
+.stat1{
+    font-size: 30px;
+    color: #db6015;
+    font-weight: bold;
+}
+
+button{
+    background-color: #db6015;
+    color:white;
+    font-weight: bold;
+}
+select{
+    width: 200px;
+}
+
+.col-md-5{
+    margin-top: 20%;
+}
+
+.progress{
+    margin-bottom: 15px;
+    width: 50%;
+    height: 15px;
+}
+
+.progress-bar{
+    background-color: #db6015;
+}
+
+.barprog{
+    margin-top: 5%;
+}
+
+.card{
+    background-color: transparent;
+    border: 1px solid rgb(81, 126, 159, 0.5);
+}
+
+.card-title{
+    margin: 5px;
+}
+
+.row-cols-1{
+    width: 100%;
+    margin-top: 35px;
+}
+
+.nbpost{
+    color: #db6015;
+    font-weight: bold;
+    padding-left: 25px;
+}
+
+h5{
+    font-size: 22px;
+}
+
+.refer{
+    text-transform: uppercase;
+    color: rgb(255,255,255, 0.7);
+    font-weight: bold;
+    text-emphasis-position:unset;
+}

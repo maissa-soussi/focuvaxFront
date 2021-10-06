@@ -1,0 +1,39 @@
+<div id="Section">
+    <div class="navaccueil">
+        <app-admin-navbar></app-admin-navbar>
+    </div>
+    <div class="row pad" id="logo">
+        <div class="col-md-6 offset-md-3">
+            <img src="/assets/images/logo/Logo_FocuVax_V2.svg" id="image1">
+        </div>
+    </div>
+
+    <div class="row pad1" id="body-info">
+        <div class="col-md-2 stat">
+            <span class="stat1">{{nbOffre}} </span> Offres
+        </div>
+        <div class="col-md-2 stat">
+            <span class="stat1">{{nbCandidat}} </span> Candidats
+        </div>
+        <div class="col-md-2 stat">
+            <span class="stat1">{{nbEntretien}} </span> Entretiens
+        </div>
+        <div class="col-md-2 stat">
+            <span class="stat1">{{nbNoEntretien}} </span> En Attente
+        </div>
+    </div>
+
+    <div class="row pad1" id="body-info">
+        
+        <div class="row row-cols-1 row-cols-md-4">
+            <div *ngFor="let offre of offres, let index = index" class="col mb-4">
+              <div class="card">
+                  <h5 class="card-title"> <span class="refer"> <i class="fas fa-star-half-alt"></i> {{offre.ref}} </span>
+                    <span class="nbpost"> {{offreStat[index]}}</span>
+                  </h5>
+              </div>
+            </div>
+          </div>
+    </div>
+
+</div>

@@ -1,0 +1,84 @@
+<div id="Section">
+    <div class="navaccueil">
+        <app-accueil-navbar></app-accueil-navbar>
+    </div>
+    <div class="row pad" id="logo">
+        <div class="col-md-6 offset-md-3">
+            <img src="/assets/images/logo/Logo_FocuVax_V2.svg" id="image1">
+        </div>
+
+    </div>
+
+    <!--profile-->
+
+    <div class="row pad1">
+        <div class="col-md-4">
+            <img *ngIf="testimg==false" src="/assets/images/logo/profil.png" id="profil" />
+            <img *ngIf="testimg==true" src="{{lie2+candidat.id}}" id="profil" />
+            <h4> <span class="nom"> {{candidat.user.nom}} </span> {{candidat.user.prenom}}</h4>
+            <h6 id="username">{{candidat.user.username}}</h6>
+
+
+            <div class="row contact">
+                <i class="fas fa-phone-alt"></i> {{candidat.tel}}
+            </div>
+            <div class="row contact" *ngIf="candidat.linkedin != null">
+                <i class="fab fa-linkedin-in"></i> {{candidat.linkedin}}
+            </div>
+
+            <div class="row contact">
+                <a routerLink="/Profile/{{candidat.id}}/Cv" target="_blank"><i class="fas fa-file-download"></i> CV</a>
+            </div>
+
+
+        </div>
+        <div class="col-md-8">
+            <h5 class="title">INFORMATIONS PERSONNELLES</h5>
+
+            <div class="row informationProfile">
+                <div class="col-md-7">
+                    <span class="titre">DIPLOME : </span> <span class="corps">{{candidat.diplome}}</span>
+                </div>
+                <div class="col-md-5">
+                    <span class="titre">ANNEE D'OBTENTION : </span> <span class="corps">{{candidat.annee_Diplome}}</span>
+                </div>
+            </div>
+
+            <div class="row informationProfile">
+                <div class="col-md-7">
+                    <span class="titre">ECOLE : </span> <span class="corps">{{candidat.ecole}}</span>
+                </div>
+                <div class="col-md-5">
+                    <span class="titre">SPECIALITE : </span> <span class="corps">{{candidat.specialite}}</span>
+                </div>
+            </div>
+
+            <div class="row informationProfile">
+                <div class="col-md-7">
+                    <span class="titre">NOMBRE D'ANNEES D'EXPERIENCE : </span> <span class="corps">{{candidat.nb_annee_experience}}</span>
+                </div>
+                <div class="col-md-5" *ngIf="candidat.etat != null">
+                    <span class="titre">ETAT : </span> <span class="corps">{{candidat.etat}}</span>
+                </div>
+            </div>
+            <div class="row informationProfile" *ngIf="candidat.entretien != null">
+                <div class="col-md-7">
+                    <span class="titre">DATE ENTRETIEN : </span> <span class="corps">{{date}}</span>
+                </div>
+                <div class="col-md-5">
+                    <span class="titre">HEURE ENTRETIEN : </span> <span class="corps">{{candidat.entretien.heure.valeur}}</span>
+                </div>
+            </div>
+
+            <h5 class="title">OFFRES</h5>
+            <div *ngFor="let offre of candidat.offres">
+                <i class="fas fa-dot-circle"></i> {{offre.titre}}
+            </div>
+
+        </div>
+
+    </div>
+
+    <!--end profile-->
+
+</div>

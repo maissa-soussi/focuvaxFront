@@ -1,0 +1,112 @@
+<div id="Section">
+    <div class="navaccueil">
+        <app-admin-navbar></app-admin-navbar>
+    </div>
+    <div class="row pad" id="logo">
+        <div class="col-md-6 offset-md-3">
+            <img src="/assets/images/logo/Logo_FocuVax_V2.svg" id="image1">
+        </div>
+    </div>
+
+    <div class="row pad1" id="body-info">
+        <div class="col-md-6 offset-md-3">
+            <h3>ADMINISTRATEURS</h3>
+        </div>
+        <div class="col-md-3">
+            <a data-toggle="modal" data-target="#mymodal"><button class="buttonAjout">
+                    <h5> AJOUTER </h5>
+                </button></a>
+        </div>
+    </div>
+
+    <div class="row pad1">
+        <table class="table table-borderless">
+            <thead>
+                <tr>
+                    <th>NOM & PRÉNOM</th>
+                    <th>MAIL</th>
+                    <th>ROLE</th>
+                    <th>#</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let administrateur of admins">
+                    <td scope="row">{{administrateur.nom}} {{administrateur.prenom}}</td>
+                    <td>{{administrateur.username}}</td>
+                    <td>{{administrateur.role}}</td>
+                    <td><a><button> <i class="fas fa-trash-alt"
+                                    (click)="userDelete(administrateur.id)"></i></button></a></td>
+                </tr>
+
+            </tbody>
+        </table>
+    </div>
+</div>
+
+
+<!-- modal-->
+<div class="modal" id="mymodal">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <form [formGroup]="adminForm" (ngSubmit)="registerAdmin()">
+                <div class="modal-header">
+                    <h4>Ajouter Administrateur </h4>
+                </div>
+                <div class="modal-body">
+                    <div class="row rowpop">
+                        <div class="col-md-6 form-group">
+                            <input type="text" class="form-control" id="nom" aria-describedby="nom" placeholder="NOM"
+                                formControlName="nom" [(ngModel)]="admin.nom"
+                                [ngClass]="{'inputinval': nom?.touched && nom?.invalid}">
+                        </div>
+                        <div class="col-md-6 form-group">
+                            <input type="text" class="form-control" id="prenom" aria-describedby="prenom"
+                                placeholder="PRENOM" formControlName="prenom" [(ngModel)]="admin.prenom"
+                                [ngClass]="{'inputinval': prenom?.touched && prenom?.invalid}">
+                        </div>
+                    </div>
+
+                    <div class="row rowpop">
+                        <div class="col-md-12 form-group">
+                            <input type="text" class="form-control" id="mail" aria-describedby="mail" placeholder="MAIL"
+                                formControlName="username" [(ngModel)]="admin.username"
+                                [ngClass]="{'inputinval': username?.touched && username?.invalid}">
+                        </div>
+                    </div>
+
+                    <div class="row rowpop">
+                        <div class="col-md-6">
+                            <select id="inputexperience" class="form-control" (change)="getExperience($event.target)">
+                                <option disabled selected>ROLE</option>
+                                <option value="ROLE_ADMIN">ADMIN </option>
+                                <option value="ROLE_SUPER_ADMIN">SUPER_ADMIN </option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="row rowpop">
+                        <div class="col-md-6 form-group">
+                            <input type="password" class="form-control" id="mdp" aria-describedby="mdp"
+                                placeholder="MOT DE PASSE" formControlName="mdp" [(ngModel)]="admin.mdp"
+                                [ngClass]="{'inputinval': mdp?.touched && mdp?.invalid}">
+                        </div>
+                        <div class="col-md-6 form-group">
+                            <input type="password" class="form-control" id="mdp1" aria-describedby="mdp1"
+                                placeholder="CONFIRMER" formControlName="mdp1"
+                                [ngClass]="{'inputinval': mdp1?.touched && (mdp1?.invalid || mdp1?.value != mdp?.value)}">
+                        </div>
+                    </div>
+                    <div class="row rowbtn">
+                        <div class="col-md-12">
+                            <button type="submit"
+                                [disabled]="adminForm.invalid || mdp1?.value != mdp?.value || testRole==false "
+                                [ngClass]="{'btn-secondary':adminForm.invalid || mdp1?.value != mdp?.value || testRole==false,'btn-primary':adminForm.valid && testRole==true}"
+                                class="btn">AJOUTER</button>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<!--fin modal-->

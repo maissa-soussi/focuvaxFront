@@ -1,0 +1,59 @@
+<div id="Section">
+    <div class="navaccueil">
+        <app-admin-navbar></app-admin-navbar>
+    </div>
+    <div class="row pad" id="logo">
+        <div class="col-md-6 offset-md-3">
+            <img src="/assets/images/logo/Logo_FocuVax_V2.svg" id="image1">
+        </div>
+    </div>
+
+    <div class="row pad1" id="body-info">
+        <div class="col-md-6 offset-md-3">
+            <h3>Envoie des mails</h3>
+        </div>
+    </div>
+    <div class="row pad3">
+        <form [formGroup]="mailForm">
+            <div class="row">
+                <div class="col-md-6 parts">
+                    <input type="text" class="form-control" id="objet" placeholder="Objet du mail"
+                        formControlName="objet" [(ngModel)]="objetEmail">
+                    <textarea class="form-control rounded" id="mail" placeholder="Mail" rows="5" cols="77"
+                        formControlName="mail" rows="4" cols="66" [(ngModel)]="bodyEmail"></textarea>
+                    
+                </div>
+                <div class="col-md-2 parts">
+                    <div class="row parts1">
+                        <button (click)="clickName()" class="btn btn-default bt">PRENOM</button>
+                    </div>
+                    <div class="row parts1">
+                        <button (click)="clickDate()" class="btn btn-default bt">DATE</button>
+                    </div>
+                    <div class="row parts1">
+                        <button (click)="clickHeure()" class="btn btn-default bt">HEURE</button>
+                    </div>
+                    <div class="row">
+                        <button (click)="clickLieu()" class="btn btn-default bt">LIEU</button>
+                    </div>
+
+                </div>
+                <div class="col-md-3">
+                    <select required id="etat" (change)="etatChange($event.target)"
+                        class="form-control form-control-large">
+                        <option disabled selected>Etat</option>
+                        <option *ngFor="let etat of etatList" value="{{etat}}"> {{etat}} </option>
+                    </select>
+                </div>
+            </div>
+            <div class="row pad2">
+                <button type="submit" [disabled]="mailForm.invalid || etat==''"
+                    [ngClass]="{'btn-secondary':mailForm.invalid || etat=='','btn-primary':mailForm.valid && etat!=''}"
+                    (click)="mailSend()" class="btn btn-default editable-submit">ENVOYER MAIL</button>
+            </div>
+
+        </form>
+    </div>
+
+
+</div>

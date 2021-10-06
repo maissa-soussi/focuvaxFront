@@ -1,0 +1,127 @@
+<div id="Section">
+    <div class="navaccueil">
+        <app-accueil-navbar></app-accueil-navbar>
+    </div>
+    <div class="row pad" id="logo">
+        <div class="col-md-6 offset-md-3">
+            <img src="/assets/images/logo/Focuvax_Logo_Accueil.svg" id="image1">
+        </div>
+    </div>
+    <form [formGroup]="candidatForm" (ngSubmit)="addCandidat()">
+        <div class="row pad">
+            <div class="col-md-4">
+                <img src="/assets/images/logo/profil.png" id="profil" />
+                <h4> <span>{{theUser.nom}} </span> {{theUser.prenom}} </h4>
+                <h6 id="username"> {{theUser.username}}</h6>
+
+                <div class="form-group">
+                    <div class="row tel">
+                        <i class="fas fa-phone-alt"></i> <input type="text" class="form-control simple" id="tel"
+                            placeholder="TEL" formControlName="tel" [(ngModel)]="candidat.tel"
+                            [ngClass]="{'inputinval': tel?.touched && tel?.invalid}">
+
+                    </div>
+                    <div class="row">
+                        <i class="fab fa-linkedin-in"></i> <input type="url" class="form-control simple" id="tel"
+                            placeholder="URL Linkedin" formControlName="linkedin" [(ngModel)]="candidat.linkedin"
+                            [ngClass]="{'inputinval': linkedin?.touched && linkedin?.invalid}">
+                    </div>
+                </div>
+
+            </div>
+            <div class="col-md-7">
+                <h5 class="title">INFORMATIONS PERSONNELLES</h5>
+
+                <!--<div class="form-group">
+                    <input type="text" class="form-control" id="nom" placeholder="Nom">
+                </div>
+                <div class="form-group">
+                    <input type="text" class="form-control" id="prenom" placeholder="Prénom">
+                </div>-->
+                <div class="row">
+                    <div class="form-group col-md-7">
+                        <select name="inputdiplome" class="form-control form-control-large"
+                            (change)="getDiplome($event.target)">
+                            <option selected disabled>Diplôme</option>
+                            <option *ngFor="let diplome of diplomeList" value="{{diplome}}"> {{diplome}} </option>
+                        </select>
+                        <!-- <div *ngIf="diplome?.touched && diplome?.invalid" class="text-danger">
+                            <small *ngIf="diplome?.errors?.required">Champ obligatoire <br></small>
+                        </div>-->
+                    </div>
+                    <div class="form-group col-md-5">
+                        <input type="text" class="form-control" id="annee_Diplome" placeholder="Année d'obtention"
+                            formControlName="annee_Diplome" [(ngModel)]="candidat.annee_Diplome"
+                            [ngClass]="{'inputinval': annee_Diplome?.touched && annee_Diplome?.invalid}">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group col-md-8">
+                        <select id="inputecole" class="form-control form-control-large"
+                            (change)="getEcole($event.target)">
+                            <option selected disabled>École</option>
+                            <option *ngFor="let ecole of ecoleList" value="{{ecole}}"> {{ecole}} </option>
+                        </select>
+                        <!--<div *ngIf="ecole?.touched && ecole?.invalid" class="text-danger">
+                            <small *ngIf="ecole?.errors?.required">Champ obligatoire <br></small>
+                        </div>-->
+                    </div>
+                    <div class="form-group col-md-4">
+                        <select id="inputspecialite" class="form-control form-control-large"
+                            (change)="getSpecialite($event.target)">
+                            <option selected disabled>Spécialité</option>
+                            <option *ngFor="let specialite of specialiteList" value="{{specialite}}">{{specialite}}
+                            </option>
+                        </select>
+                        <!--<div *ngIf="specialite?.touched && specialite?.invalid" class="text-danger">
+                            <small *ngIf="specialite?.errors?.required">Champ obligatoire <br></small>
+                        </div>-->
+                    </div>
+                </div>
+                <div class="form-group">
+                    <select id="inputexperience" class="form-control form-control-large"
+                        (change)="getAnneeExp($event.target)">
+                        <option selected disabled>N° d'années d'expérience ( sans compter PFE) </option>
+                        <option *ngFor="let experience of experienceList" value="{{experience}}">{{experience}}</option>
+                    </select>
+                    <!--<div *ngIf="nb_annee_experience?.touched && nb_annee_experience?.invalid" class="text-danger">
+                        <small *ngIf="nb_annee_experience?.errors?.required">Champ obligatoire <br></small>
+                    </div>-->
+                </div>
+
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text" id="inputGroupFileAddon01">CV</span>
+                    </div>
+
+                    <div class="form-group">
+                        <input type="file" class="form-control-file" id="exampleFormControlFile1"
+                            accept="application/pdf" formControlName="cv" [(ngModel)]="candidat.cv"
+                            [ngClass]="{'inputinval': cv?.touched && cv?.invalid}" (change)="onCvUpload($event)">
+                    </div>
+                </div>
+
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text" id="inputGroupFileAddon02">Photo</span>
+                    </div>
+                    <div class="form-group">
+                        <input type="file" class="form-control-file" id="exampleFormControlFile2" accept="image/*"
+                            (change)="onPhotoUpload($event)">
+                    </div>
+
+                </div>
+                <div class="buttonplace">
+                    <button type="submit"
+                        [disabled]="candidatForm.invalid || testSpecialite==false || testDiplome==false || testEcole==false || testAnneeExp==false "
+                        [ngClass]="{'btn-secondary':candidatForm.invalid || testSpecialite==false || testDiplome==false || testEcole==false || testAnneeExp==false,'btn-primary':candidatForm.valid && testSpecialite==true && testDiplome==true && testEcole==true && testAnneeExp==true}"
+                        class="btn btn-default editable-submit">Enregistrer</button>
+                </div>
+
+
+
+            </div>
+
+        </div>
+    </form>
+</div>

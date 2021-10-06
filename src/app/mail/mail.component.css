@@ -1,0 +1,84 @@
+#Section {
+    background-image: url("/assets/images/backgrounds/Focuvax_Register.svg");
+    min-width: 100%;
+    min-height: 100%;
+    top: 0;
+    left: 0;
+    position: fixed;
+    color: white;
+}
+
+.pad{
+    padding-left: 8%;
+    padding-right: 8%;
+    text-align: left;
+}
+
+#logo{
+    text-align: center;
+}
+
+#image1{
+    width: 200px;
+}
+
+.pad1{
+    padding-left: 13%;
+    padding-right: 13%;
+    text-align: center;
+    padding-top: 5%;
+}
+#body-info{
+    padding-top: 15px;
+}
+
+.btn{
+    background-color: #db6015;
+    color:white;
+    font-weight: bold;
+    border-radius: 7px;
+    font-size: 14px;
+    border : none;
+}
+
+.col-md-2{
+    margin-left: 70px;
+}
+
+.parts1{
+    margin-bottom: 10px;
+    margin-top: 10px;
+}
+
+.bt{
+    width: 90px;
+}
+
+.col-md-3{
+    margin-top: 40px;;
+}
+
+.pad2{
+    margin-left: 20%;
+    margin-right: 20%;
+    text-align: center;
+    padding-top: 5%;
+}
+
+.pad3{
+    padding-left: 17%;
+    padding-right: 13%;
+    text-align: center;
+    padding-top: 5%;
+}
+
+.rounded{
+    background-color: transparent;
+    color: white;
+}
+
+#objet{
+    background-color: transparent;
+    color: white;
+    margin-top: 10px;
+}

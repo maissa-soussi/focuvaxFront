@@ -1,0 +1,79 @@
+<div id="Section">
+    <div class="navaccueil">
+        <app-accueil-navbar></app-accueil-navbar>
+    </div>
+    <div class="row">
+        <div class="col-md-6 offset-md-3">
+            <img src="/assets/images/logo/Focuvax_Logo_Accueil.svg" id="image1">
+        </div>
+    </div>
+    <div class="row" id="body-form">
+        <div class="col-md-6 offset-md-3">
+            <h3>CRÉER UN COMPTE</h3>
+
+            <form [formGroup]="registerForm" (ngSubmit)="registerCandidat()">
+                <div class="form-group">
+                    <input type="text" class="form-control" id="nom" aria-describedby="nomHelp" placeholder="Nom"
+                        formControlName="nom" [(ngModel)]="user.nom"
+                        [ngClass]="{'inputinval': nom?.touched && nom?.invalid}">
+                        <div *ngIf="nom?.touched && nom?.invalid" class="text-danger">
+                            <small *ngIf="nom?.errors?.required" >Champ obligatoire <br></small> 
+                            <small *ngIf="nom?.errors?.pattern" > Le nom ne doit pas contenir des symboles <br></small> 
+                            <small *ngIf="nom?.errors?.minlength">Nom doit contenir au moins 2 caractères</small> 
+                        </div>
+                </div>
+                <div class="form-group">
+                    <input type="text" class="form-control" id="prenom" aria-describedby="prenomHelp"
+                        placeholder="Prénom" formControlName="prenom" [(ngModel)]="user.prenom"
+                        [ngClass]="{'inputinval': prenom?.touched && prenom?.invalid}">
+                        <div *ngIf="prenom?.touched && prenom?.invalid" class="text-danger">
+                            <small *ngIf="prenom?.errors?.required">Champ obligatoire <br></small> 
+                            <small *ngIf="prenom?.errors?.pattern">Le prénom ne doit pas contenir des symboles <br></small> 
+                            <small *ngIf="prenom?.errors?.minlength">Nom doit contenir au moins 2 caractères </small> 
+                        </div>
+                </div>
+                <div class="form-group">
+                    <input type="email" class="form-control" id="email" placeholder="Email" formControlName="username"
+                        [(ngModel)]="user.username" [ngClass]="{'inputinval': username?.touched && username?.invalid}">
+                        <div  *ngIf="username?.touched && username?.invalid" class="text-danger">
+                            <small *ngIf="username?.errors?.required">Champ obligatoire <br></small> 
+                            <small *ngIf="username?.errors?.email">Email invalide</small>
+                        </div>
+                    </div>
+                <div class="form-group">
+                    <input type="password" class="form-control" id="password" placeholder="Mot de passe"
+                        formControlName="mdp" [(ngModel)]="user.mdp"
+                        [ngClass]="{'inputinval': mdp?.touched && mdp?.invalid}">
+                        <div  *ngIf="mdp?.touched && mdp?.invalid" class="text-danger">
+                            <small *ngIf="mdp?.errors?.required">Champ Obligatoire <br></small> 
+                            <small *ngIf="mdp?.errors?.minlength">Minimum 8 caractères</small>
+                        </div>
+                </div>
+
+                <div class="form-group">
+                    <input type="password" class="form-control" id="password1" placeholder="Confirmer le mot de passe"
+                        formControlName="mdp1"
+                        [ngClass]="{'inputinval': mdp1?.touched && (mdp1?.invalid || mdp1?.value != mdp?.value)}">
+                        <div  *ngIf="mdp1?.touched && (mdp1?.invalid || mdp1?.value != mdp?.value)" class="text-danger">
+                            <small *ngIf="mdp1?.errors?.required">Champ obligatoire <br></small> 
+                            <small *ngIf="mdp1?.errors?.minlength">Minimum 8 caractères <br></small>
+                            <small *ngIf="mdp1?.value != mdp?.value">Mot de passe non identiques <br></small>
+                        </div>
+                </div>
+
+
+                <button type="submit" [disabled]="registerForm.invalid || mdp1?.value != mdp?.value"
+                    [ngClass]="{'btn-secondary':registerForm.invalid || mdp1?.value != mdp?.value,'btn-primary':registerForm.valid}"
+                    class="btn">Enregistrer</button>
+            </form>
+
+        </div>
+
+    </div>
+
+    <div class="row">
+        <div class="col-md-6 offset-md-3 mot">
+            <h6> <a href="" routerLink="/Authentification"> Vous avez dèjà un compte ? Se connecter ! </a></h6>
+        </div>
+    </div>
+</div>

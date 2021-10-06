@@ -1,0 +1,227 @@
+<div id="Section">
+    <div class="navaccueil">
+        <app-admin-navbar></app-admin-navbar>
+    </div>
+    <div class="row pad" id="logo">
+        <div class="col-md-6 offset-md-3">
+            <img src="/assets/images/logo/Logo_FocuVax_V2.svg" id="image1">
+        </div>
+    </div>
+
+    <div class="row pad1" id="body-info">
+        <div class="col-md-6 offset-md-3">
+            <h3>OFFRES D'EMPLOI</h3>
+        </div>
+        <div class="col-md-3">
+            <a data-toggle="modal" data-target="#mymodal"><button class="buttonAjout">
+                    <h5> AJOUTER </h5>
+                </button></a>
+        </div>
+    </div>
+    <div class="row pad1">
+        <table class="table table-borderless">
+            <thead>
+                <tr>
+                    <th>REF</th>
+                    <th>TITRE</th>
+                    <th style="width: 40px;">PROFIL</th>
+                    <th>NIVEAU D'EXP</th>
+                    <th>PAYS</th>
+                    <th>#</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let offre of offres">
+                    <td scope="row"><a data-toggle="modal" data-target="#mymodalaffiche"
+                            (click)="test(offre)"><button class="refColor">{{offre.ref}} </button></a></td>
+                    <td>{{offre.titre}}</td>
+                    <td class="cardlimit">{{offre.profil}}</td>
+                    <td>{{offre.niveau_Exp}}</td>
+                    <td>{{offre.pays}}</td>
+                    <td>
+                        <a><button> <i class="fas fa-trash-alt" (click)="offreDelete(offre.id)"></i></button></a>
+                        <a data-toggle="modal" data-target="#mymodalmodif" (click)="offreModif(offre)"><button> <i
+                                    class="fas fa-pen"></i></button></a>
+                    </td>
+
+                    <!-- modal-->
+                    <div class="modal" id="mymodalaffiche">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5>{{afficheOffre.ref}} </h5>
+                                </div>
+                                <div class="modal-body">
+                                    <div class="row rowpop">
+                                        <div class="col-md-5"> TITRE</div>
+                                        <div class="col-md-7"> {{afficheOffre.titre}}</div>
+                                    </div>
+                                    <div class="row rowpop">
+                                        <div class="col-md-5"> PROFIL</div>
+                                        <div class="col-md-7">{{afficheOffre.profil}}</div>
+                                    </div>
+                                    <div class="row rowpop">
+                                        <div class="col-md-5"> MISSION</div>
+                                        <div class="col-md-7"> {{afficheOffre.mission}}</div>
+                                    </div>
+                                    <div class="row rowpop">
+                                        <div class="col-md-5"> NIVEAU D'EXPERIENCE</div>
+                                        <div class="col-md-7"> {{afficheOffre.niveau_Exp}}</div>
+                                    </div>
+                                    <div class="row rowpop">
+                                        <div class="col-md-5"> PAYS</div>
+                                        <div class="col-md-7"> {{afficheOffre.pays}}</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--fin modal-->
+
+
+
+
+                    <!-- modal modif-->
+                    <div class="modal" id="mymodalmodif">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <form [formGroup]="offreModifForm" (ngSubmit)="modificationOffre(ModifOffre.id)">
+                                    <div class="modal-header">
+                                        <h4>Modifier Offre </h4>
+                                    </div>
+                                    <div class="modal-body">
+                                        <div class="row rowpop">
+                                            <div class="col-md-6 form-group">
+                                                <input type="text" class="form-control" id="ref" aria-describedby="ref"
+                                                    placeholder="REFERENCE" value="ModifOffre.ref" formControlName="ref"
+                                                    [(ngModel)]="ModifOffre.ref">
+                                            </div>
+                                            <div class="col-md-6 form-group">
+                                                <input type="text" class="form-control" id="titre"
+                                                    aria-describedby="titre" placeholder="TITRE"
+                                                    value="ModifOffre.titre" formControlName="titre"
+                                                    [(ngModel)]="ModifOffre.titre">
+
+                                            </div>
+                                        </div>
+
+                                        <div class="row rowpop">
+                                            <div class="col-md-12 form-group">
+                                                <textarea class="form-control rounded" id="profil" placeholder="PROFIL"
+                                                    formControlName="profil" value="ModifOffre.profil" rows="4"
+                                                    cols="66" [(ngModel)]="ModifOffre.profil"></textarea>
+                                            </div>
+
+                                        </div>
+                                        <div class="row rowpop">
+                                            <div class="col-md-12 form-group">
+                                                <textarea class="form-control rounded" id="mission"
+                                                    placeholder="MISSION" formControlName="mission"
+                                                    value="ModifOffre.mission" rows="4" cols="66"
+                                                    [(ngModel)]="ModifOffre.mission"></textarea>
+                                            </div>
+                                        </div>
+                                        <div class="row rowpop">
+                                            <div class="col-md-6 form-group">
+                                                <select id="niveau_Exp" class="form-control"
+                                                    formControlName="niveau_Exp" [(ngModel)]="ModifOffre.niveau_Exp">
+                                                    <option *ngFor="let experience of experienceList"
+                                                        value="{{experience}}">{{experience}}
+                                                    </option>
+                                                </select>
+                                            </div>
+
+                                            <div class="col-md-6 form-group">
+                                                <select id="pays" class="form-control" formControlName="pays"
+                                                    [(ngModel)]="ModifOffre.pays">
+                                                    <option *ngFor="let pays of paysList" value="{{pays}}">{{pays}}
+                                                    </option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="row rowbtn">
+                                            <div class="col-md-12">
+                                                <button type="submit" class="btn">Modifier</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    <!--fin modal modif-->
+
+
+
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+
+<!-- modal-->
+<div class="modal" id="mymodal">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <form [formGroup]="offreForm" (ngSubmit)="ajoutOffre()">
+                <div class="modal-header">
+                    <h4>Ajouter Offre </h4>
+                </div>
+                <div class="modal-body">
+                    <div class="row rowpop">
+                        <div class="col-md-6 form-group">
+                            <input type="text" class="form-control" id="ref" aria-describedby="ref"
+                                placeholder="REFERENCE" formControlName="ref" [(ngModel)]="offreAjout.ref">
+                        </div>
+                        <div class="col-md-6 form-group">
+                            <input type="text" class="form-control" id="titre" aria-describedby="titre"
+                                placeholder="TITRE" formControlName="titre" [(ngModel)]="offreAjout.titre">
+
+                        </div>
+                    </div>
+
+                    <div class="row rowpop">
+                        <div class="col-md-12 form-group">
+                            <textarea class="form-control rounded" id="profil" placeholder="PROFIL"
+                                formControlName="profil" rows="4" cols="66" [(ngModel)]="offreAjout.profil"></textarea>
+                        </div>
+
+                    </div>
+                    <div class="row rowpop">
+                        <div class="col-md-12 form-group">
+                            <textarea class="form-control rounded" id="mission" placeholder="MISSION"
+                                formControlName="mission" rows="4" cols="66"
+                                [(ngModel)]="offreAjout.mission"></textarea>
+                        </div>
+                    </div>
+                    <div class="row rowpop">
+                        <div class="col-md-6 form-group">
+                            <select id="niveau_Exp" class="form-control" (change)="getExperience($event.target)">
+                                <option selected disabled>NIVEAU D'EXPERIENCE</option>
+                                <option *ngFor="let experience of experienceList" value="{{experience}}">{{experience}}
+                                </option>
+                            </select>
+                        </div>
+
+                        <div class="col-md-6 form-group">
+                            <select id="pays" class="form-control" (change)="getPays($event.target)">
+                                <option selected disabled>PAYS</option>
+                                <option *ngFor="let pays of paysList" value="{{pays}}">{{pays}}
+                                </option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="row rowbtn">
+                        <div class="col-md-12">
+                            <button type="submit" [disabled]="offreForm.invalid || testPays==false || testExp==false"
+                                [ngClass]="{'btn-secondary':offreForm.invalid || testPays==false || testExp==false,'btn-primary':offreForm.valid && testPays==true && testExp==true}"
+                                class="btn">AJOUTER</button>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<!--fin modal-->

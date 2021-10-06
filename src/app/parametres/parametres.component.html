@@ -1,0 +1,226 @@
+<div id="Section">
+    <div class="navaccueil">
+        <app-admin-navbar></app-admin-navbar>
+    </div>
+    <div class="row pad" id="logo">
+        <div class="col-md-6 offset-md-3">
+            <img src="/assets/images/logo/Logo_FocuVax_V2.svg" id="image1">
+        </div>
+    </div>
+
+    <div class="row pad1" id="body-info">
+        <div class="col-md-6 offset-md-3">
+            <h3>PARAMETRES</h3>
+        </div>
+    </div>
+
+    <div class="row pad1">
+        <ul class="nav nav-pills" id="pills-tab" role="tablist">
+            <li class="nav-item" role="presentation">
+                <a class="nav-link active" id="pills-ecole-tab" data-toggle="pill" href="#pills-ecole" role="tab"
+                    aria-controls="pills-ecole" aria-selected="true">ÉCOLE</a>
+            </li>
+            <li class="nav-item" role="presentation">
+                <a class="nav-link" id="pills-diplome-tab" data-toggle="pill" href="#pills-diplome" role="tab"
+                    aria-controls="pills-diplome" aria-selected="false">DIPLOME</a>
+            </li>
+            <li class="nav-item" role="presentation">
+                <a class="nav-link" id="pills-specialite-tab" data-toggle="pill" href="#pills-specialite" role="tab"
+                    aria-controls="pills-specialite" aria-selected="false">SPÉCIALITÉ</a>
+            </li>
+            <li class="nav-item" role="presentation">
+                <a class="nav-link" id="pills-exp-tab" data-toggle="pill" href="#pills-exp" role="tab"
+                    aria-controls="pills-exp" aria-selected="false">NOMBRE D'ANNÉES D'EXPÉRIENCE</a>
+            </li>
+            <li class="nav-item" role="presentation">
+                <a class="nav-link" id="pills-etat-tab" data-toggle="pill" href="#pills-etat" role="tab"
+                    aria-controls="pills-etat" aria-selected="false">ÉTAT</a>
+            </li>
+            <li class="nav-item" role="presentation">
+                <a class="nav-link" id="pills-pays-tab" data-toggle="pill" href="#pills-pays" role="tab"
+                    aria-controls="pills-pays" aria-selected="false">PAYS</a>
+            </li>
+            <li class="nav-item" role="presentation">
+                <a class="nav-link" id="pills-offres-tab" data-toggle="pill" href="#pills-nb-offres" role="tab"
+                    aria-controls="pills-nb-offres" aria-selected="false">NBRE MAX D'OFFRES</a>
+            </li>
+            <li class="nav-item" role="presentation">
+                <a class="nav-link" id="pills-heure-tab" data-toggle="pill" href="#pills-heure" role="tab"
+                    aria-controls="pills-heure" aria-selected="false">HEURE</a>
+            </li>
+            <li class="nav-item" role="presentation">
+                <a class="nav-link" id="pills-lieu-tab" data-toggle="pill" href="#pills-lieu" role="tab"
+                    aria-controls="pills-lieu" aria-selected="false">LIEU</a>
+            </li>
+        </ul>
+        <div class="tab-content" id="pills-tabContent">
+            <div class="tab-pane fade show active" id="pills-ecole" role="tabpanel" aria-labelledby="pills-ecole-tab">
+                <form>
+                    <div class="row rowpop">
+                        <div class="col-md-6 form-group">
+                            <input type="text" #ecole class="form-control" id="ecole" aria-describedby="ecole">
+                        </div>
+                        <div class="col-md-4 form-group">
+                            <button type="submit" class="btn" (click)="ajoutEcole(ecole.value)">AJOUTER</button>
+                        </div>
+                    </div>
+                </form>
+                <div class="row par" *ngFor="let ecole of ecoleList">
+                    <div class="col-md-1"><a><button> <i class="fas fa-trash-alt"
+                                    (click)="ecoleDelete(ecole)"></i></button></a></div>
+                    <div class="col-md-8">
+                        {{ecole}}
+                    </div>
+                </div>
+
+
+            </div>
+            <div class="tab-pane fade" id="pills-diplome" role="tabpanel" aria-labelledby="pills-diplome-tab">
+                <form>
+                    <div class="row rowpop">
+                        <div class="col-md-6 form-group">
+                            <input type="text" #diplome class="form-control" id="diplome" aria-describedby="diplome">
+                        </div>
+                        <div class="col-md-4 form-group">
+                            <button type="submit" class="btn" (click)="ajoutDiplome(diplome.value)">AJOUTER</button>
+                        </div>
+                    </div>
+                </form>
+                <div class="row par" *ngFor="let diplome of diplomeList">
+                    <div class="col-md-1"><a><button> <i class="fas fa-trash-alt"
+                                    (click)="diplomeDelete(diplome)"></i></button></a></div>
+                    <div class="col-md-8">{{diplome}}</div>
+                </div>
+            </div>
+            <div class="tab-pane fade" id="pills-specialite" role="tabpanel" aria-labelledby="pills-specialite-tab">
+                <form>
+                    <div class="row rowpop">
+                        <div class="col-md-6 form-group">
+                            <input type="text" #specialite class="form-control" id="specialite"
+                                aria-describedby="specialite">
+                        </div>
+                        <div class="col-md-4 form-group">
+                            <button type="submit" class="btn"
+                                (click)="ajoutSpecialite(specialite.value)">AJOUTER</button>
+                        </div>
+                    </div>
+                </form>
+                <div class="row par" *ngFor="let specialite of specialiteList">
+                    <div class="col-md-1"><a><button> <i class="fas fa-trash-alt"
+                                    (click)="specialiteDelete(specialite)"></i></button></a></div>
+                    <div class="col-md-8">{{specialite}}</div>
+                </div>
+            </div>
+            <div class="tab-pane fade" id="pills-exp" role="tabpanel" aria-labelledby="pills-exp-tab">
+                <form>
+                    <div class="row rowpop">
+                        <div class="col-md-6 form-group">
+                            <input type="text" #experience class="form-control" id="exp" aria-describedby="exp">
+                        </div>
+                        <div class="col-md-4 form-group">
+                            <button type="submit" class="btn"
+                                (click)="ajoutExperience(experience.value)">AJOUTER</button>
+                        </div>
+                    </div>
+                </form>
+                <div class="row par" *ngFor="let experience of experienceList">
+                    <div class="col-md-1"><a><button> <i class="fas fa-trash-alt"
+                                    (click)="experienceDelete(experience)"></i></button></a></div>
+                    <div class="col-md-8">{{experience}}</div>
+                </div>
+            </div>
+            <div class="tab-pane fade" id="pills-etat" role="tabpanel" aria-labelledby="pills-etat-tab">
+                <form>
+                    <div class="row rowpop">
+                        <div class="col-md-6 form-group">
+                            <input type="text" #etat class="form-control" id="etat" aria-describedby="etat">
+                        </div>
+                        <div class="col-md-4 form-group">
+                            <button type="submit" class="btn" (click)="ajoutEtat(etat.value)">AJOUTER</button>
+                        </div>
+                    </div>
+                </form>
+                <div class="row par" *ngFor="let etat of etatList">
+                    <div class="col-md-1"><a><button> <i class="fas fa-trash-alt"
+                                    (click)="etatDelete(etat)"></i></button></a></div>
+                    <div class="col-md-8">{{etat}}</div>
+                </div>
+            </div>
+            <div class="tab-pane fade" id="pills-pays" role="tabpanel" aria-labelledby="pills-pays-tab">
+                <form>
+                    <div class="row rowpop">
+                        <div class="col-md-6 form-group">
+                            <input type="text" #pays class="form-control" id="pays" aria-describedby="pays">
+                        </div>
+                        <div class="col-md-4 form-group">
+                            <button type="submit" class="btn" (click)="ajoutPays(pays.value)">AJOUTER</button>
+                        </div>
+                    </div>
+                </form>
+                <div class="row par" *ngFor="let pays of paysList">
+                    <div class="col-md-1"><a><button> <i class="fas fa-trash-alt"
+                                    (click)="paysDelete(pays)"></i></button></a></div>
+                    <div class="col-md-8">{{pays}}</div>
+                </div>
+            </div>
+            <div class="tab-pane fade" id="pills-nb-offres" role="tabpanel" aria-labelledby="pills-pays-tab">
+                <form>
+                    <div class="row rowpop">
+                        <div class="col-md-6 form-group">
+                            <input type="text" #nbOffres class="form-control" id="nb-offres"
+                                aria-describedby="nb-offres">
+                        </div>
+                        <div class="col-md-4 form-group">
+                            <button type="submit" class="btn" [disabled]="testOffre==true"
+                                [ngClass]="{'btn-secondary':testOffre==true,'btn-primary':testOffre==false}"
+                                (click)="ajoutNbOffres(nbOffres.value)">AJOUTER</button>
+                        </div>
+                    </div>
+                </form>
+                <div class="row par">
+                    <div class="col-md-1" *ngIf="testOffre==true"><a><button> <i class="fas fa-trash-alt"
+                                    (click)="nbOffreDelete()"></i></button></a></div>
+                    <div class="col-md-8" *ngIf="testOffre;">{{nb_Offres}}</div>
+                </div>
+            </div>
+            <div class="tab-pane fade" id="pills-heure" role="tabpanel" aria-labelledby="pills-heure-tab">
+                <form>
+                    <div class="row rowpop">
+                        <div class="col-md-6 form-group">
+                            <input type="text" #heure class="form-control" id="heure" aria-describedby="heure">
+                        </div>
+                        <div class="col-md-4 form-group">
+                            <button type="submit" class="btn" (click)="ajoutHeure(heure.value)">AJOUTER</button>
+                        </div>
+                    </div>
+                </form>
+                <div class="row par" *ngFor="let heure of heures">
+                    <div class="col-md-1"> <a><button> <i class="fas fa-trash-alt"
+                                    (click)="heureDelete(heure.id)"></i></button></a></div>
+                    <div class="col-md-8">{{heure.valeur}}</div>
+                </div>
+            </div>
+
+            <div class="tab-pane fade" id="pills-lieu" role="tabpanel" aria-labelledby="pills-lieu-tab">
+                <form>
+                    <div class="row rowpop">
+                        <div class="col-md-6 form-group">
+                            <input type="text" #lieu class="form-control" id="lieu" aria-describedby="lieu">
+                        </div>
+                        <div class="col-md-4 form-group">
+                            <button type="submit" class="btn" (click)="ajoutLieu(lieu.value)">AJOUTER</button>
+                        </div>
+                    </div>
+                </form>
+                <div class="row par" *ngFor="let lieu of lieux">
+                    <div class="col-md-1"> <a><button> <i class="fas fa-trash-alt"
+                                    (click)="lieuDelete(lieu.id)"></i></button></a></div>
+                    <div class="col-md-8">{{lieu.valeur}}</div>
+                </div>
+            </div>
+
+
+
+        </div>
+    </div>
+</div>

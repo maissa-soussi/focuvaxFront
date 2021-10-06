@@ -1,0 +1,40 @@
+<nav class="navbar navbar-expand-lg">
+    <div class="container">
+        <a class="navbar-brand" href="/">
+            <img src="/assets/images/logo/Focus_Logo.svg" alt="" width="150" height="70"
+                class="d-inline-block align-text-top">
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
+            aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse justify-content-end" id="navbarResponsive">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link js-scroll-trigger" routerLink="/Accueil">ACCUEIL</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link js-scroll-trigger" routerLink="/OffresAdmin">OFFRES</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link js-scroll-trigger" routerLink="/Candidats">CANDIDATS</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link js-scroll-trigger" routerLink="/Mail">Mail</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link js-scroll-trigger" routerLink="/Parametrages">PARAMETRES
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link js-scroll-trigger" routerLink="/Admins"><i class="fas fa-cogs"></i>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <button (click)="logout()"> <a class="nav-link js-scroll-trigger"> SE DÉCONNECTER <i
+                                class="fas fa-power-off"></i></a></button>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>

@@ -1,0 +1,120 @@
+<div id="Section">
+  <div class="navaccueil">
+    <app-admin-navbar></app-admin-navbar>
+  </div>
+  <div class="row pad" id="logo">
+    <div class="col-md-6 offset-md-3">
+      <img src="/assets/images/logo/Logo_FocuVax_V2.svg" id="image1">
+    </div>
+  </div>
+
+  <div class="row pad1" id="body-info">
+    <div class="col-md-6 offset-md-3">
+      <h3>CANDIDATS</h3>
+    </div>
+
+    <div class="col-md-3">
+      <form>
+        <select id="offre" required class="form-control" (change)="tri($event.target)">
+          <option selected>Tous</option>
+          <option *ngFor="let offre of offreList" value="{{offre.ref}}">{{offre.ref}}
+          </option>
+        </select>
+      </form>
+    </div>
+
+  </div>
+
+  <div class="row pad1">
+    <table class="table table-borderless">
+      <thead>
+        <tr>
+          <th>NOM & PRÉNOM</th>
+          <th>SPÉCIALITÉ</th>
+          <th>ÉCOLE</th>
+          <th>ANNÉE</th>
+          <th>NOMBRE D'année D'Exp</th>
+          <th>#</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let candidat of candidats">
+          <td scope="row">{{candidat.user.nom}} {{candidat.user.prenom}}</td>
+          <td>{{candidat.specialite}}</td>
+          <td>{{candidat.ecole}}</td>
+          <td>{{candidat.annee_Diplome}}</td>
+          <td>{{candidat.nb_annee_experience}}</td>
+          <td>
+            <a><button [routerLink]="['/Profile', candidat.id]"><i class="fas fa-eye"></i></button></a>
+            <a data-toggle="modal" data-target="#modifetat" (click)="candidatModif(candidat)"><button><i
+                  class="fas fa-pen"></i></button></a>
+          </td>
+
+
+          <!-- modal-->
+          <div class="modal" id="modifetat">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <form [formGroup]="offreForm" (ngSubmit)="ajoutEntretien(heure.value,etat.value, lieu.value)">
+                  <div class="modal-header">
+                    <h4>MODIFIER ETAT </h4>
+                  </div>
+                  <div class="modal-body">
+                    
+                    <div class="row datehour">
+                      <div class="col-md-6">
+                        <form class="form-inline">
+                          <div class="form-group">
+                            <div class="input-group">
+                              <input type="text" placeholder="Choisir une date" class="form-control" name="dp"
+                                bsDatepicker [daysDisabled]="[7,0]" [minDate]="minDate" [bsConfig]="datePickerConfig" [(ngModel)]="theDate"
+                                #d="bsDatepicker" (ngModelChange)="dateChoosed(heure.value, lieu.value)">
+                            </div>
+                          </div>
+                        </form>
+                      </div>
+                      <div class="col-md-3">
+                        <select id="inputheure" class="form-control" #heure (change)="dateChoosed(heure.value, lieu.value)">
+                          <option disabled selected hidden="hidden" value="0">HEURE</option>
+                          <option *ngFor="let h of heures" value="{{h.id}}">{{h.valeur}} </option>
+                        </select>
+                      </div>
+                      <div class="col-md-3 numbers">
+                        {{stat}} <span>ENTRETIEN</span>
+                      </div>
+                    </div>
+                    <div class="row et">
+                      <div class="col-md-6">
+                        <select id="inputheure" #etat class="form-control">
+                          <option disabled selected hidden="hidden">ETAT</option>
+                          <option *ngFor="let etat of etatList" value="{{etat}}">{{etat}} </option>
+                        </select>
+                      </div>
+                      <div class="col-md-6">
+                        <select id="inputheure" #lieu class="form-control" (change)="dateChoosed(heure.value, lieu.value)">
+                          <option disabled selected hidden="hidden" value="0">LIEU</option>
+                          <option *ngFor="let lieu of lieux" value="{{lieu.id}}">{{lieu.valeur}} </option>
+                        </select>
+                      </div>
+                    </div>
+             
+                    <div class="row rowbtn">
+                      <div class="col-md-12">
+                        <button type="submit" class="btn">Fixer Entretien</button>
+                      </div>
+                    </div>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+          <!--fin modal-->
+
+
+        </tr>
+      </tbody>
+    </table>
+
+
+  </div>
+</div>

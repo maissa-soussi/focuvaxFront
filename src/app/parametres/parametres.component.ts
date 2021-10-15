@@ -122,10 +122,10 @@ export class ParametresComponent implements OnInit {
   }
 
   ajoutEcole(e: any) {
-    if (e != "") {
+    if (e != "" && /^[a-zA-Z]+$/.test(e)) {
       if (this.ecoleList.length == 0) { this.ecoleList[0] = e; }
       else if (this.ecoleList.indexOf(e) < 0)
-        this.ecoleList[this.ecoleList.length] = e;
+        {this.ecoleList[this.ecoleList.length] = e;
 
       this.nvecole = this.ecoleList.join("|");
       this.parametres.ecole = this.nvecole;
@@ -133,19 +133,24 @@ export class ParametresComponent implements OnInit {
       this.http.post<any>(path + "parametrages/ecole", this.parametres)
         .subscribe(
           (result) => {
-
+            window.location.reload();
           },
           (error) => {
           }
-        )
+        )}
+        else 
+        this.toastr.error("Ecole existe déjà");
+
     }
+    else 
+    this.toastr.error("Valeur invalide");
   }
 
   ajoutSpecialite(e: any) {
-    if (e != "") {
+    if (e != "" && /^[a-zA-Z]+$/.test(e)) {
       if (this.specialiteList.length == 0) { this.specialiteList[0] = e; }
       else if (this.specialiteList.indexOf(e) < 0)
-        this.specialiteList[this.specialiteList.length] = e;
+        {this.specialiteList[this.specialiteList.length] = e;
 
       this.nvspecialite = this.specialiteList.join("|");
       this.parametres.specialite = this.nvspecialite;
@@ -153,19 +158,23 @@ export class ParametresComponent implements OnInit {
       this.http.post<any>(path + "parametrages/specialite", this.parametres)
         .subscribe(
           (result) => {
-
+            window.location.reload();
           },
           (error) => {
           }
-        )
+        )}
+        else 
+        this.toastr.error("Spécialité existe déjà");
     }
+    else 
+    this.toastr.error("Valeur invalide");
   }
 
   ajoutDiplome(e: any) {
-    if (e != "") {
+    if (e != "" && /^[a-zA-Z]+$/.test(e)) {
       if (this.diplomeList.length == 0) { this.diplomeList[0] = e; }
       else if (this.diplomeList.indexOf(e) < 0)
-        this.diplomeList[this.diplomeList.length] = e;
+       { this.diplomeList[this.diplomeList.length] = e;
 
       this.nvdiplome = this.diplomeList.join("|");
       this.parametres.diplome = this.nvdiplome;
@@ -173,38 +182,44 @@ export class ParametresComponent implements OnInit {
       this.http.post<any>(path + "parametrages/diplome", this.parametres)
         .subscribe(
           (result) => {
-
+            window.location.reload();
           },
           (error) => {
           }
-        )
+        )}
+        else 
+        this.toastr.error("Diplome existe déjà");
     }
+    else 
+    this.toastr.error("Valeur invalide");
   }
 
   ajoutEtat(e: any) {
     if (e != "") {
       if (this.etatList.length == 0) { this.etatList[0] = e; }
       else if (this.etatList.indexOf(e) < 0)
-        this.etatList[this.etatList.length] = e;
+        {this.etatList[this.etatList.length] = e;
 
       this.nvetat = this.etatList.join("|");
       this.parametres.etat = this.nvetat;
 
       this.http.post<any>(path + "parametrages/etat", this.parametres)
         .subscribe(
-          (result) => {
+          (result) => { window.location.reload();
           },
           (error) => {
           }
-        )
+        )}
+        else 
+        this.toastr.error("Etat existe déjà");
     }
   }
 
   ajoutPays(e: any) {
-    if (e != "") {
+    if (e != "" && /^[a-zA-Z]+$/.test(e)) {
       if (this.paysList.length == 0) { this.paysList[0] = e; }
       else if (this.paysList.indexOf(e) < 0)
-        this.paysList[this.paysList.length] = e;
+        {this.paysList[this.paysList.length] = e;
 
       this.nvpays = this.paysList.join("|");
       this.parametres.pays = this.nvpays;
@@ -212,12 +227,16 @@ export class ParametresComponent implements OnInit {
       this.http.post<any>(path + "parametrages/pays", this.parametres)
         .subscribe(
           (result) => {
-
+            window.location.reload();
           },
           (error) => {
           }
-        )
+        )}
+        else 
+        this.toastr.error("Pays existe déjà");
     }
+    else 
+    this.toastr.error("Valeur invalide");
   }
 
 
@@ -225,7 +244,7 @@ export class ParametresComponent implements OnInit {
     if (e != "") {
       if (this.experienceList.length == 0) { this.experienceList[0] = e; }
       else if (this.experienceList.indexOf(e) < 0)
-        this.experienceList[this.experienceList.length] = e;
+        {this.experienceList[this.experienceList.length] = e;
 
       this.nvnbExp = this.experienceList.join("|");
       this.parametres.nb_annee_exp = this.nvnbExp;
@@ -233,11 +252,13 @@ export class ParametresComponent implements OnInit {
       this.http.post<any>(path + "parametrages/exp", this.parametres)
         .subscribe(
           (result) => {
-
+            window.location.reload();
           },
           (error) => {
           }
-        )
+        )}
+        else 
+        this.toastr.error("Expérience existe déjà");
     }
   }
 
@@ -266,22 +287,28 @@ export class ParametresComponent implements OnInit {
   }
 
   ajoutHeure(e: any) {
-    if (e != "") {
+    if (e != "" && e.length<6) {
       this.nvheure.valeur = e;
 
       this.http.post<any>(path + "heures", this.nvheure)
         .subscribe(
           (result) => {
-
+            window.location.reload();
           },
           (error) => {
           }
         )
+        
     }
+    else {
+      this.toastr.error("Champ invalide");
+
+    }
+    
   }
 
   ajoutLieu(e: any) {    
-    if (e != "") {
+    if (e != "" && /^[a-zA-Z]+$/.test(e)) {
       this.nvlieu.valeur = e;
       this.http.post<any>(path + "lieux", this.nvlieu)
         .subscribe(
@@ -291,7 +318,11 @@ export class ParametresComponent implements OnInit {
           (error) => {
           }
         )
+
+        
     }
+    else 
+    this.toastr.error("Valeur invalide");
   }
 
   lieuDelete(id: any) {
@@ -437,6 +468,8 @@ export class ParametresComponent implements OnInit {
       )
 
   }
+
+ 
 
 
 }

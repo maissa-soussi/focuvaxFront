@@ -59,6 +59,8 @@ export class DashboardComponent implements OnInit {
       },
       (error) => { }
     )
+    
+    
 
     //get OffresStat
     this.http.get<any>(path + "offresStat")
@@ -68,6 +70,9 @@ export class DashboardComponent implements OnInit {
       },
       (error) => { }
     )
+
+    
+    
 
     //get nb candidats
     this.http.get<any>(path + "candidats/nb")

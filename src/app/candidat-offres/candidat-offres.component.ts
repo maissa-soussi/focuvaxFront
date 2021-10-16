@@ -157,8 +157,8 @@ export class CandidatOffresComponent implements OnInit {
           (error) => { }
         )
 
-      this.router.navigate(['/EspaceCandidat']);
       window.location.reload();
+     
 
     }
 

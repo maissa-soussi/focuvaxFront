@@ -140,7 +140,7 @@ export class AdminCandidatsComponent implements OnInit {
   }
 
   tri(o: any) {
-    //console.log(this.offreAjout.ref);
+    
     if (o.value == "Tous") {
       //get candidats
       this.http.get<any>(path + "candidats")
@@ -165,7 +165,7 @@ export class AdminCandidatsComponent implements OnInit {
   }
 
   dateChoosed(heure: any, lieu:any) {
-    if (heure != "HEURE" && heure != 0 && this.theDate != null && lieu != "LIEU" && lieu != 0 ) {
+    if (heure != "HEURE" && heure != 0 && this.theDate != null && lieu != "LIEU" ) {
       Date.prototype.toJSON = function () {
         const hoursDiff = this.getHours() - this.getTimezoneOffset() / 60;
         this.setHours(hoursDiff);
@@ -176,7 +176,8 @@ export class AdminCandidatsComponent implements OnInit {
       this.date = JSON.stringify(this.date)
 
       this.date = this.date.substring(1, 11);
-
+      
+      
       //get Stat of date and hour
       this.http.get<any>(path + "candidats/nbentretiens/dateHourNumber/" + this.date + "/" + heure+"/"+lieu)
         .subscribe(
@@ -190,12 +191,14 @@ export class AdminCandidatsComponent implements OnInit {
   }
 
   ajoutEntretien(h: any, e: any, l:any) {
-    if (h != 0 && e != "ETAT" && l != 0 && this.theDate != null) {
-      this.entretien.date = this.date;
+    if (h != 0 && h != "HEURE" && e != "ETAT" && l != "LIEU" && this.theDate != null) {
+      this.entretien.date = this.date;   
+           
       this.http.post<any>(path + "entretiens/" + h, this.entretien)
         .subscribe(
           (result) => {
             this.entretienResult = result;
+                   
             //put entretien
             this.http.put<any>(path + "candidats/entretiens/" + this.entretienResult + "/" + e, this.candidatAModif)
               .subscribe(
@@ -205,20 +208,22 @@ export class AdminCandidatsComponent implements OnInit {
               )
 
               //put lieu 
-              this.http.put<any>(path + "candidats/lieuPut/" + l, this.candidatAModif)
+             this.http.put<any>(path + "candidats/lieuPut/" + l, this.candidatAModif)
         .subscribe(
           (res) => {
           },
           (err) => { }
         )
         window.location.reload();
+        
           },
           (error) => {
           }
         )
+        
     }
     
-    if (h == 0 && e != "ETAT") {
+    else if (h == 0 && e != "ETAT") {
       this.http.put<any>(path + "candidats/etatPut/" + e, this.candidatAModif)
         .subscribe(
           (res) => {

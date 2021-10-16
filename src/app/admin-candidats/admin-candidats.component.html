@@ -92,8 +92,8 @@
                       </div>
                       <div class="col-md-6">
                         <select id="inputheure" #lieu class="form-control" (change)="dateChoosed(heure.value, lieu.value)">
-                          <option disabled selected hidden="hidden" value="0">LIEU</option>
-                          <option *ngFor="let lieu of lieux" value="{{lieu.id}}">{{lieu.valeur}} </option>
+                          <option disabled selected hidden="hidden" value="LIEU">LIEU</option>
+                          <option *ngFor="let lieu of lieux" value="{{lieu.valeur}}">{{lieu.valeur}} </option>
                         </select>
                       </div>
                     </div>

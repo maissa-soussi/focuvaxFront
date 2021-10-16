@@ -61,6 +61,7 @@ export class ParametresComponent implements OnInit {
       })
     }
     if (this.testNavig = true) {
+    
       //get Parametres
       this.http.get<any>(path + "parametrages/1")
         .subscribe(
@@ -68,7 +69,7 @@ export class ParametresComponent implements OnInit {
             this.parametres = result;
             this.convertObjToString();
           },
-          (error) => { }
+          (error) => {this.toastr.error("Pas de parametre, Veuillez remplir les données");  }
         )
 
       //get heures
@@ -122,14 +123,12 @@ export class ParametresComponent implements OnInit {
   }
 
   ajoutEcole(e: any) {
-    if (e != "" && /^[a-zA-Z]+$/.test(e)) {
-      if (this.ecoleList.length == 0) { this.ecoleList[0] = e; }
-      else if (this.ecoleList.indexOf(e) < 0)
-        {this.ecoleList[this.ecoleList.length] = e;
-
-      this.nvecole = this.ecoleList.join("|");
+    if (e != "" && /^[a-z A-Z]+$/.test(e)) {
+      if (this.ecoleList.length == 0) { this.ecoleList[0] = e; 
+        this.nvecole = this.ecoleList.join("|");
       this.parametres.ecole = this.nvecole;
-
+          console.log(this.parametres);
+          
       this.http.post<any>(path + "parametrages/ecole", this.parametres)
         .subscribe(
           (result) => {
@@ -137,9 +136,27 @@ export class ParametresComponent implements OnInit {
           },
           (error) => {
           }
-        )}
+        )
+      }
+      else if (this.ecoleList.indexOf(e) < 0)
+        {this.ecoleList[this.ecoleList.length] = e;
+          this.nvecole = this.ecoleList.join("|");
+      this.parametres.ecole = this.nvecole;
+          console.log(this.parametres);
+          
+      this.http.post<any>(path + "parametrages/ecole", this.parametres)
+        .subscribe(
+          (result) => {
+            window.location.reload();
+          },
+          (error) => {
+          }
+        )
+        }
         else 
         this.toastr.error("Ecole existe déjà");
+      
+        
 
     }
     else 
@@ -147,8 +164,20 @@ export class ParametresComponent implements OnInit {
   }
 
   ajoutSpecialite(e: any) {
-    if (e != "" && /^[a-zA-Z]+$/.test(e)) {
-      if (this.specialiteList.length == 0) { this.specialiteList[0] = e; }
+    if (e != "" && /^[a-z A-Z]+$/.test(e)) {
+      if (this.specialiteList.length == 0) { this.specialiteList[0] = e; 
+        this.nvspecialite = this.specialiteList.join("|");
+        this.parametres.specialite = this.nvspecialite;
+  
+        this.http.post<any>(path + "parametrages/specialite", this.parametres)
+          .subscribe(
+            (result) => {
+              window.location.reload();
+            },
+            (error) => {
+            }
+          )
+      }
       else if (this.specialiteList.indexOf(e) < 0)
         {this.specialiteList[this.specialiteList.length] = e;
 
@@ -171,8 +200,20 @@ export class ParametresComponent implements OnInit {
   }
 
   ajoutDiplome(e: any) {
-    if (e != "" && /^[a-zA-Z]+$/.test(e)) {
-      if (this.diplomeList.length == 0) { this.diplomeList[0] = e; }
+    if (e != "" && /^[a-z A-Z]+$/.test(e)) {
+      if (this.diplomeList.length == 0) { this.diplomeList[0] = e; 
+        this.nvdiplome = this.diplomeList.join("|");
+        this.parametres.diplome = this.nvdiplome;
+  
+        this.http.post<any>(path + "parametrages/diplome", this.parametres)
+          .subscribe(
+            (result) => {
+              window.location.reload();
+            },
+            (error) => {
+            }
+          )
+      }
       else if (this.diplomeList.indexOf(e) < 0)
        { this.diplomeList[this.diplomeList.length] = e;
 
@@ -196,7 +237,18 @@ export class ParametresComponent implements OnInit {
 
   ajoutEtat(e: any) {
     if (e != "") {
-      if (this.etatList.length == 0) { this.etatList[0] = e; }
+      if (this.etatList.length == 0) { this.etatList[0] = e; 
+        this.nvetat = this.etatList.join("|");
+        this.parametres.etat = this.nvetat;
+  
+        this.http.post<any>(path + "parametrages/etat", this.parametres)
+          .subscribe(
+            (result) => { window.location.reload();
+            },
+            (error) => {
+            }
+          )
+      }
       else if (this.etatList.indexOf(e) < 0)
         {this.etatList[this.etatList.length] = e;
 
@@ -216,8 +268,20 @@ export class ParametresComponent implements OnInit {
   }
 
   ajoutPays(e: any) {
-    if (e != "" && /^[a-zA-Z]+$/.test(e)) {
-      if (this.paysList.length == 0) { this.paysList[0] = e; }
+    if (e != "" && /^[a-z A-Z]+$/.test(e)) {
+      if (this.paysList.length == 0) { this.paysList[0] = e; 
+        this.nvpays = this.paysList.join("|");
+        this.parametres.pays = this.nvpays;
+  
+        this.http.post<any>(path + "parametrages/pays", this.parametres)
+          .subscribe(
+            (result) => {
+              window.location.reload();
+            },
+            (error) => {
+            }
+          )
+      }
       else if (this.paysList.indexOf(e) < 0)
         {this.paysList[this.paysList.length] = e;
 
@@ -242,7 +306,19 @@ export class ParametresComponent implements OnInit {
 
   ajoutExperience(e: any) {
     if (e != "") {
-      if (this.experienceList.length == 0) { this.experienceList[0] = e; }
+      if (this.experienceList.length == 0) { this.experienceList[0] = e;
+        this.nvnbExp = this.experienceList.join("|");
+        this.parametres.nb_annee_exp = this.nvnbExp;
+  
+        this.http.post<any>(path + "parametrages/exp", this.parametres)
+          .subscribe(
+            (result) => {
+              window.location.reload();
+            },
+            (error) => {
+            }
+          )
+      }
       else if (this.experienceList.indexOf(e) < 0)
         {this.experienceList[this.experienceList.length] = e;
 
@@ -287,7 +363,7 @@ export class ParametresComponent implements OnInit {
   }
 
   ajoutHeure(e: any) {
-    if (e != "" && e.length<6) {
+    if (e != "" && e.length<=6) {
       this.nvheure.valeur = e;
 
       this.http.post<any>(path + "heures", this.nvheure)
@@ -308,7 +384,7 @@ export class ParametresComponent implements OnInit {
   }
 
   ajoutLieu(e: any) {    
-    if (e != "" && /^[a-zA-Z]+$/.test(e)) {
+    if (e != "" && /^[a-z A-Z]+$/.test(e)) {
       this.nvlieu.valeur = e;
       this.http.post<any>(path + "lieux", this.nvlieu)
         .subscribe(

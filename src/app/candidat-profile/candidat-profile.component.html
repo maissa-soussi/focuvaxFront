@@ -66,13 +66,13 @@
                     <span class="titre">DATE ENTRETIEN : </span> <span class="corps">{{date}}</span>
                 </div>
                 <div class="col-md-5">
-                    <span class="titre">HEURE ENTRETIEN : </span> <span class="corps">{{candidat?.entretien?.heure?.valeur}}</span>
+                    <span class="titre">HEURE ENTRETIEN : </span> <span class="corps">{{candidat?.entretien?.heure}}</span>
                 </div>
             </div>
 
             <h5 class="title">OFFRES</h5>
             <div *ngFor="let offre of candidat.offres">
-                <i class="fas fa-dot-circle"></i> {{offre.titre}}
+                <i class="fas fa-dot-circle"></i> {{offre?.titre}}
             </div>
 
         </div>

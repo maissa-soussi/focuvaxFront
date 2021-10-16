@@ -73,7 +73,7 @@ export class AdminsComponent implements OnInit {
           (result) => {
             this.admins = result;
           },
-          (error) => { console.log(error) }
+          (error) => { }
         )
     }
     else

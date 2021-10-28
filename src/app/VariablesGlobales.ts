@@ -1,1 +1,1 @@
-export const path:string = "http://localhost:8080/";
+export const path:string = "http://focuvax.focus-corporation.com:8081/";

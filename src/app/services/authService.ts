@@ -32,7 +32,7 @@ export class AuthService {
 
 getuserbyusername(username:any){
 
-   return this.http.get("http://localhost:8080/myUser/"+username)
+   return this.http.get("http://focuvax.focus-corporation.com:8081/myUser/"+username)
 
 }
 

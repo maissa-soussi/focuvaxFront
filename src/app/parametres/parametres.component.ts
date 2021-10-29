@@ -123,7 +123,7 @@ export class ParametresComponent implements OnInit {
   }
 
   ajoutEcole(e: any) {
-    if (e != "" && /^[a-z A-Z]+$/.test(e)) {
+    if (e != "" && /^[a-z A-Z é è à É]+$/.test(e)) {
       if (this.ecoleList.length == 0) { this.ecoleList[0] = e; 
         this.nvecole = this.ecoleList.join("|");
       this.parametres.ecole = this.nvecole;
@@ -164,7 +164,7 @@ export class ParametresComponent implements OnInit {
   }
 
   ajoutSpecialite(e: any) {
-    if (e != "" && /^[a-z A-Z]+$/.test(e)) {
+    if (e != "" && /^[a-z A-Z é è à É]+$/.test(e)) {
       if (this.specialiteList.length == 0) { this.specialiteList[0] = e; 
         this.nvspecialite = this.specialiteList.join("|");
         this.parametres.specialite = this.nvspecialite;
@@ -200,7 +200,7 @@ export class ParametresComponent implements OnInit {
   }
 
   ajoutDiplome(e: any) {
-    if (e != "" && /^[a-z A-Z]+$/.test(e)) {
+    if (e != "" && /^[a-z A-Z é è à É]+$/.test(e)) {
       if (this.diplomeList.length == 0) { this.diplomeList[0] = e; 
         this.nvdiplome = this.diplomeList.join("|");
         this.parametres.diplome = this.nvdiplome;
@@ -268,7 +268,7 @@ export class ParametresComponent implements OnInit {
   }
 
   ajoutPays(e: any) {
-    if (e != "" && /^[a-z A-Z]+$/.test(e)) {
+    if (e != "" && /^[a-z A-Z é è à É]+$/.test(e)) {
       if (this.paysList.length == 0) { this.paysList[0] = e; 
         this.nvpays = this.paysList.join("|");
         this.parametres.pays = this.nvpays;
@@ -384,7 +384,7 @@ export class ParametresComponent implements OnInit {
   }
 
   ajoutLieu(e: any) {    
-    if (e != "" && /^[a-z A-Z]+$/.test(e)) {
+    if (e != "" && /^[a-z A-Z é è à É]+$/.test(e)) {
       this.nvlieu.valeur = e;
       this.http.post<any>(path + "lieux", this.nvlieu)
         .subscribe(

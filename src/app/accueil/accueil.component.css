@@ -5,13 +5,11 @@
     top: 0;
     left: 0;
     position: fixed;
-
     color: white;
 }
 
 #image1{
     width: 200px;
-    padding-bottom: 7px;
 }
 
 
@@ -21,12 +19,12 @@ span {
 
 .row {
     padding-left: 8%;
-    padding-right: 6%;
+    padding-right: 3%;
 }
 
-.navaccueil{
-    padding-bottom: 3%;
-}
+/*.navaccueil{
+    padding-bottom: 0.5%;
+}*/
 
 .maps{
     padding-top: 15%;
@@ -64,12 +62,12 @@ i {
 }
 
 #nom{
-    margin-bottom: 70px;
+    margin-bottom: 50px;
 }
 
 p{
     text-align: justify;
-    width:80%;
+    width:100%;
 }
 
 

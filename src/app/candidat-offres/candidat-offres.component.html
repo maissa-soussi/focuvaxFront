@@ -7,8 +7,13 @@
         <div class="col-md-6 offset-md-3">
             <h3>OFFRES D'EMPLOI</h3>
         </div>
+        <div class="col-md-3">
+            <span id="choixoffre"> Choisir {{maxcheckedbox}} offres Maximum</span>
+        </div>
+        
     </div>
     <form (ngSubmit)="CandidatOffre()">
+        
         <div class="row rowdesign row-cols-1 row-cols-md-4">
             <div *ngFor="let offre of offres" class="col mb-3">
                 <div class="card">
@@ -79,9 +84,11 @@
 
         <div class="row rowdesign">
             <div class="col-md-6 offset-md-3">
-                <button type="submit" [disabled]="checkedNumber==0 || testCandidat==false"
-                    [ngClass]="{'btn-secondary':checkedNumber==0 || testCandidat==false,'btn-primary':checkedNumber>0 && testCandidat==true}"
+                <button type="submit" [disabled]="checkedNumber==0 || testCandidat==false || canpostuler==false"
+                    [ngClass]="{'btn-secondary':checkedNumber==0 || testCandidat==false || canpostuler==false,'btn-primary':checkedNumber>0 && testCandidat==true && canpostuler==true}"
                     class="btn btn-default editable-submit">POSTULER</button>
+                <br>
+                    <span *ngIf="canpostuler==false">Vous avez atteint le nombre Maximum de postulation</span>
             </div>
         </div>
 

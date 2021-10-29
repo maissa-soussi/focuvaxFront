@@ -150,3 +150,8 @@ p{
     overflow: hidden;
     text-overflow: ellipsis;
 }
+
+#choixoffre{
+color: #db6015;
+font-size: 14px;
+}

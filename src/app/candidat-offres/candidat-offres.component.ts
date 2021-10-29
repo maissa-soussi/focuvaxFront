@@ -20,6 +20,9 @@ export class CandidatOffresComponent implements OnInit {
   item: any;
   x: number = 0;
   public id: number = 0;
+  public nboffrebyc =0;
+
+  canpostuler = true;
   //public nb_Offres: any
 
   public parametres: any = {}
@@ -75,9 +78,8 @@ export class CandidatOffresComponent implements OnInit {
               this.testCandidat = false;
             }
 
-          },
-          (error) => { }
-        )
+
+            
 
       //get Parametres
       this.http.get<any>(path + "parametrages/1")
@@ -86,7 +88,27 @@ export class CandidatOffresComponent implements OnInit {
             this.parametres = result;
             this.convertnbOffreToString();
           },
-          (error) => { console.log(error) }
+          (error) => { }
+        )
+
+        // get nb offre by candidat
+        this.http.get<any>(path +"candidats/nbPostulation/"+this.candidat.id)
+        .subscribe(
+          (result1) => {
+            this.nboffrebyc = result1;
+            if(this.nboffrebyc>= this.maxcheckedbox)
+            {this.canpostuler=false;
+            }
+            else {
+              this.maxcheckedbox=this.maxcheckedbox-this.nboffrebyc;
+            }
+            
+          },
+          (error) => { }
+        )
+
+          },
+          (error) => { }
         )
 
       //get Offres
@@ -97,6 +119,9 @@ export class CandidatOffresComponent implements OnInit {
           },
           (error) => { }
         )
+          
+          
+        
     }
     else
       this.router.navigate(['/']);
@@ -163,6 +188,7 @@ export class CandidatOffresComponent implements OnInit {
     }
 
   }
+
 
 }
 
